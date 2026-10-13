@@ -1,0 +1,463 @@
+/* =========================================
+   1. CSS VARIABLES (Minimal 5 di :root)
+========================================= */
+:root {
+    /* Warna Background Solid (Menyatu) */
+    --bg-dark: #0b1121;      /* Biru malam sangat gelap */
+    --bg-light: #111d3a;     /* Biru malam sedikit terang */
+    
+    /* Warna Teks */
+    --text-white: #f8fafc;
+    --text-gray: #94a3b8;
+    --text-blue: #38bdf8;    /* Aksen Biru Langit */
+    
+    /* Tipografi & Layout */
+    --font-main: 'Poppins', sans-serif;
+    --max-width: 1100px;
+    --radius: 8px;
+}
+
+/* =========================================
+   2. RESET & BASE STYLE
+========================================= */
+*, *::before, *::after {
+    box-sizing: border-box; /* Global box-sizing */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-gray);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Container Utama: Membatasi lebar agar rapi di tengah */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* =========================================
+   3. HEADER / NAVBAR (Flexbox Komponen 1)
+========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100;
+    background-color: rgba(11, 17, 33, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header__container {
+    display: flex; /* Flexbox */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.header__nav {
+    display: flex; /* Flexbox */
+    align-items: center;
+    gap: 30px;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.header__nav a:hover {
+    color: var(--text-blue);
+}
+
+.header__nav-btn {
+    border: 1px solid var(--text-blue);
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: var(--text-blue) !important;
+    transition: all 0.3s !important;
+}
+
+.header__nav-btn:hover {
+    background-color: var(--text-blue);
+    color: var(--bg-dark) !important;
+}
+
+/* =========================================
+   4. HERO SECTION (CSS Grid Struktur Utama)
+========================================= */
+.hero {
+    padding-top: 160px;
+    padding-bottom: 80px;
+    background-color: var(--bg-dark);
+}
+
+.hero__container {
+    display: grid; /* CSS Grid */
+    grid-template-columns: 1fr 0.6fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero__greeting {
+    font-size: 1rem;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-white);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero__badge {
+    display: inline-block;
+    background-color: rgba(56, 189, 248, 0.15);
+    color: var(--text-blue);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.hero__desc {
+    font-size: 1rem;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.hero__link {
+    text-decoration: none;
+    color: var(--text-blue);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex; /* Flexbox */
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s;
+}
+
+.hero__link:hover {
+    gap: 12px;
+}
+
+.hero__image-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+.hero__image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(56, 189, 248, 0.3);
+}
+
+.hero__location {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+/* =========================================
+   5. SECTION UMUM (Menyatu)
+========================================= */
+.section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.section--alt {
+    background-color: var(--bg-light);
+}
+
+.section__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-white);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section__subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.section__subtitle strong {
+    color: var(--text-blue);
+}
+
+.section__text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   6. RIWAYAT PENDIDIKAN (CSS Grid)
+========================================= */
+.education__grid {
+    display: grid; /* CSS Grid */
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 60px;
+    margin-top: 60px;
+}
+
+.education__item {
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.education__header {
+    display: flex; /* Flexbox */
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.education__header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+}
+
+.education__header span {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.education__year {
+    font-size: 0.9rem;
+    color: var(--text-blue);
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.education__desc {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* =========================================
+   7. CONTACT (CSS Grid & Flexbox)
+========================================= */
+.contact__wrapper {
+    display: grid; /* CSS Grid */
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: var(--radius);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.contact__info h3 {
+    font-size: 1.1rem;
+    color: var(--text-white);
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.contact__info h3:first-child {
+    margin-top: 0;
+}
+
+.contact__item {
+    display: flex; /* Flexbox */
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.contact__item i {
+    color: var(--text-blue);
+    width: 20px;
+    text-align: center;
+}
+
+.contact__item:hover {
+    color: var(--text-white);
+}
+
+.contact__form {
+    display: flex; /* Flexbox */
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact__form input,
+.contact__form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: rgba(11, 17, 33, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+    border-color: var(--text-blue);
+}
+
+.contact__form button {
+    align-self: flex-end;
+    padding: 12px 40px;
+    background-color: transparent;
+    border: 1px solid var(--text-blue);
+    color: var(--text-blue);
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-main);
+}
+
+.contact__form button:hover {
+    background-color: var(--text-blue);
+    color: var(--bg-dark);
+}
+
+/* =========================================
+   8. FOOTER (Flexbox Komponen 2)
+========================================= */
+.footer {
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--bg-dark);
+}
+
+.footer__container {
+    display: flex; /* Flexbox */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo {
+    font-weight: 700;
+    color: var(--text-white);
+    font-size: 1.2rem;
+}
+
+.footer__links {
+    display: flex; /* Flexbox */
+    gap: 20px;
+}
+
+.footer__links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.footer__links a:hover {
+    color: var(--text-blue);
+}
+
+.footer__copy {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+/* =========================================
+   9. RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .hero__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero__image-wrapper {
+        order: -1;
+    }
+    
+    .hero__desc {
+        margin: 0 auto 30px;
+    }
+
+    .contact__wrapper {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .education__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header__nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero__title {
+        font-size: 2.2rem;
+    }
+
+    .section__title {
+        font-size: 1.8rem;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
